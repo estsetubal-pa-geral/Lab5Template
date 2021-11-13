@@ -7,7 +7,7 @@ You can, instead, statically place the vertices according to other algorithms.
 
 Vertices and edges can be styled through a *css stylesheet* or programmatically (even at runtime).
 
-![smartgraph realtime](examples/smartgraph_realtime.gif)
+![smartgraph realtime](../examples/smartgraph_realtime.gif)
 
 ### Prerequisites
 
@@ -241,11 +241,11 @@ g.insertEdge("A", "H", "0");
 
 #### Sample Graph circular sorted placement (static)
 
-![graph circular placement](examples/graph_circle_placement.png)
+![graph circular placement](../examples/graph_circle_placement.png)
 
 #### Sample Graph automatic layout
 
-![graph automatic layout](examples/graph_automatic_layout.png)
+![graph automatic layout](../examples/graph_automatic_layout.png)
 
 ### Sample Digraph (directed graph)
 
@@ -281,11 +281,11 @@ Given its a small graph, we increased the `layout.repulsive-force = 25000`. You 
 
 #### Sample Digraph circular sorted placement (static)
 
-![digraph circular placement](examples/digraph_circle_placement.png)
+![digraph circular placement](../examples/digraph_circle_placement.png)
 
 #### Sample Digraph automatic layout
 
-![digraph automatic layout](examples/digraph_automatic_layout.png)
+![digraph automatic layout](../examples/digraph_automatic_layout.png)
 
 ## Contributing
 
@@ -297,4 +297,4 @@ You can fork this project or submit a pull request. Pull requests should adhere 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details. **All derivative work should include this license**.
+This project is licensed under the MIT License - see the [LICENSE](../LICENSE.txt) file for details. **All derivative work should include this license**.
