@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.brunomnsilva.smartgraph;
 
 import java.util.Random;
 import java.util.logging.Level;
@@ -38,40 +37,40 @@ import com.brunomnsilva.smartgraph.graphview.SmartPlacementStrategy;
 import com.brunomnsilva.smartgraph.containers.SmartGraphDemoContainer;
 import com.brunomnsilva.smartgraph.graph.Digraph;
 import com.brunomnsilva.smartgraph.graph.DigraphEdgeList;
-import com.brunomnsilva.smartgraph.graph.Edge;
 import com.brunomnsilva.smartgraph.graphview.SmartCircularSortedPlacementStrategy;
 import com.brunomnsilva.smartgraph.graphview.SmartGraphVertex;
 import com.brunomnsilva.smartgraph.graphview.SmartStylableNode;
+import pt.pa.adts.City;
+import pt.pa.adts.MapCities;
 
 /**
  *
  * @author brunomnsilva
  */
 public class Main extends Application {
-
+    private static final String DATAFILE = "data/demo-graph.txt";
     private volatile boolean running;
 
     @Override
     public void start(Stage ignored) {
+        Graph<City, Integer> g = build_sample_map();
 
-        Graph<String, String> g = build_sample_digraph();
-        //Graph<String, String> g = build_flower_graph();
         System.out.println(g);
-        
+
         SmartPlacementStrategy strategy = new SmartCircularSortedPlacementStrategy();
-        //SmartPlacementStrategy strategy = new SmartRandomPlacementStrategy();
-        SmartGraphPanel<String, String> graphView = new SmartGraphPanel<>(g, strategy);
+        SmartGraphPanel<City, Integer> graphView = new SmartGraphPanel<>(g, strategy);
+
 
         /*
         After creating, you can change the styling of some element.
         This can be done at any time afterwards.
         */
-        if (g.numVertices() > 0) {
-            graphView.getStylableVertex("A").setStyle("-fx-fill: gold; -fx-stroke: brown;");
-        }
+//        if (g.numVertices() > 0) {
+//            graphView.getStylableVertex(new City("Lisboa")).setStyle("-fx-fill: gold; -fx-stroke: brown;");
+//        }
 
         /*
-        Basic usage:            
+        Basic usage:
         Use SmartGraphDemoContainer if you want zoom capabilities and automatic layout toggling
         */
         //Scene scene = new Scene(graphView, 1024, 768);
@@ -92,19 +91,19 @@ public class Main extends Application {
 
         /*
         Bellow you can see how to attach actions for when vertices and edges are double clicked
-         */        
-        graphView.setVertexDoubleClickAction((SmartGraphVertex<String> graphVertex) -> {
+         */
+        graphView.setVertexDoubleClickAction((SmartGraphVertex<City> graphVertex) -> {
             System.out.println("Vertex contains element: " + graphVertex.getUnderlyingVertex().element());
-                      
+
             //toggle different styling
             if( !graphVertex.removeStyleClass("myVertex") ) {
                 /* for the golden vertex, this is necessary to clear the inline
                 css class. Otherwise, it has priority. Test and uncomment. */
                 //graphVertex.setStyle(null);
-                
+
                 graphVertex.addStyleClass("myVertex");
             }
-            
+
             //want fun? uncomment below with automatic layout
             //g.removeVertex(graphVertex.getUnderlyingVertex());
             //graphView.update();
@@ -114,9 +113,9 @@ public class Main extends Application {
             System.out.println("Edge contains element: " + graphEdge.getUnderlyingEdge().element());
             //dynamically change the style when clicked
             graphEdge.setStyle("-fx-stroke: black; -fx-stroke-width: 3;");
-            
+
             graphEdge.getStylableArrow().setStyle("-fx-stroke: black; -fx-stroke-width: 3;");
-            
+
             //uncomment to see edges being removed after click
             //Edge<String, String> underlyingEdge = graphEdge.getUnderlyingEdge();
             //g.removeEdge(underlyingEdge);
@@ -125,11 +124,11 @@ public class Main extends Application {
 
         /*
         Should proceed with automatic layout or keep original placement?
-        If using SmartGraphDemoContainer you can toggle this in the UI 
+        If using SmartGraphDemoContainer you can toggle this in the UI
          */
         //graphView.setAutomaticLayout(true);
 
-        /* 
+        /*
         Uncomment lines to test adding of new elements
          */
         //continuously_test_adding_elements(g, graphView);
@@ -137,6 +136,26 @@ public class Main extends Application {
         //    running = false;
         //});
     }
+
+    private Graph<City, Integer>  build_sample_map()  {
+        MapCities map = new MapCities();
+
+//        Porto Leiria 185
+//        Lisboa Porto 300
+//        Coimbra Coimbra 10
+//        Lisboa Leiria 130
+//        Coimbra Faro 255
+//        Porto Faro 550
+
+        // Add Cities first, with method addCity
+
+
+        // Add Connections next, with method addConnection
+
+        // When done, return the graph to be displayed
+        return map.getMap();
+    }
+
 
     /**
      * @param args the command line arguments
