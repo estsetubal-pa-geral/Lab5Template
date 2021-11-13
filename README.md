@@ -60,6 +60,7 @@ Remove do grafo a ligação entre duas cidades. Se a ligação não existir é l
 * Altere o método **build_sample_map** e adicione as cidades e as distâncias indicadas como comentário no método.
 * Altere a propriedade **edge.label** no ficheiro **smartgraph.properties** para ver no mapa as distâncias entre as cidades.
 
+ 
 
 ## Nível 4 – Implementar métodos adicionais e testes unitários relacionados
 Crie os seguintes métodos públicos:
@@ -75,20 +76,20 @@ Comece por criar o método setup de modo a disponibilizar uma configuração ini
 De seguida implemente os seguintes testes unitários:
 * **isIsolated_isCorrect_AfterInsertRemoveCitiesAndConnections**  
 Verifica se:
-* Um vértice depois de criado é considerado isolado;
-* Um vértice depois de ligado a outro não é considerado isolado;
-* Um vértice ligado a outro volta a ser considerado isolado se for removida a única ligação entre eles;
-* Um vértice com >=2 ligações a outros vértices não é isolado depois de remover uma das ligações.
+    * Um vértice depois de criado é considerado isolado;
+    * Um vértice depois de ligado a outro não é considerado isolado;
+    * Um vértice ligado a outro volta a ser considerado isolado se for removida a única ligação entre eles;
+    * Um vértice com >=2 ligações a outros vértices não é isolado depois de remover uma das ligações.
 
 * **addConnection_isCorrect_whenSourceIsEqualToDestination**  
 Verifica se se pode fazer uma ligação de uma cidade a ela própria, isto é, se não é lançada qualquer a exceção.
 
 * **neighbors_isCorrect_afterInsertAndRemoveVerticesAndEdges**  
 Verifica se a lista de cidades vizinhas é gerada corretamente, isto é:
-* Se X for uma cidade sem ligações, então não tem vizinhos;
-* Se X->Y, então Y faz parte da lista de vizinhos de X
-* Se X->Y e se removermos a ligação entre X e Y, então Y não faz parte da lista de vizinhos de X;
-* Se X->Y, se removermos Y e voltarmos a adicionar a cidade Y (mas não a ligação), então Y não faz parte da lista de vizinhos de X.
+    * Se X for uma cidade sem ligações, então não tem vizinhos;
+    * Se X->Y, então Y faz parte da lista de vizinhos de X
+    * Se X->Y e se removermos a ligação entre X e Y, então Y não faz parte da lista de vizinhos de X;
+    * Se X->Y, se removermos Y e voltarmos a adicionar a cidade Y (mas não a ligação), então Y não faz parte da lista de vizinhos de X.
 
 Na implementação da UT utilize a função auxiliar exists.
 ```
