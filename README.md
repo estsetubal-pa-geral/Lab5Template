@@ -108,15 +108,24 @@ Complete a implementação do método load da classe que permite fazer o carrega
 As cidades e as ligações devem ser criadas dinamicamente através dos métodos existentes na classe. A criação dos elementos deverá ser feita apenas se o elemento não existir, seja ele cidade ou ligação.
 A estrutura do ficheiro é a seguinte:
 
-|Linha de dados|Descrição|
-|(Exemplo)||
-|Abrantes| Uma palavra apenas – Nome da cidade (vértice apenas)|
+<table>
+ <tr>
+   <td>Linha de dados<br>(Exemplo)</td><td>Descrição</td>
+ </tr>
+ <tr>
+   <td>Abrantes</td><td>Uma palavra apenas – Nome da cidade (vértice apenas)</td>
+ </tr>
+ <tr>
+   <td>Faro 2</td><td>Duas palavras apenas - Uma cidade e a distância para si própria<br>
+                      (A ligação a implementar será origem: Faro | destino: Faro | distância: 2)</td>
+ </tr>
+ <tr>
+   <td>Viseu Coimbra 95</td><td>Três palavras – Cidade de origem, cidade de destino e a distância entre elas.<br>
+                      (A ligação a implementar será origem: Viseu | destino: Coimbra | distância: 95)</td>
+ </tr>
+ <tr>
+   <td colspan=2>**Nota:** Existe apenas um espaço entre cada elemento numa linha de dados</td>
+ </tr>
+ </table>
  
- 
-|Faro| 2	Duas palavras apenas - Uma cidade e a distância para si própria<br>
-(A ligação a implementar será origem: Faro | destino: Faro | distância: 2)|
-|Viseu| Coimbra 95	Três palavras – Cidade de origem, cidade de destino e a distância entre elas.|
-(A ligação a implementar será origem: Viseu | destino: Coimbra | distância: 95)|
-Nota: Existe apenas um espaço entre cada elemento numa linha de dados.|
-
-Aplique o método load ao ficheiro data/demo-graph.txt disponibilizado no projeto para fazer o carregamento automático de dados de um mapa e reescreva o carregamento dos dados a apresentar no SmartGraph a partir desse ficheiro.
+Aplique o método load ao ficheiro **data/demo-graph.txt** disponibilizado no projeto para fazer o carregamento automático de dados de um mapa e reescreva o carregamento dos dados a apresentar no _SmartGraph_ a partir desse ficheiro.
