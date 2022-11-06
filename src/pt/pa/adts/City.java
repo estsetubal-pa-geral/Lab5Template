@@ -9,7 +9,7 @@ public class City<E> {
 
     @Override
     public String toString() {
-        return "'" +  city + "'";
+        return city.toString();
     }
 
     public E getCity() {
